@@ -1,0 +1,141 @@
+# Module의 정의
+
+- 프로그램을 구성하는 내부의 코드가 기능별로 나뉘어져 있는 형태
+
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd646dcd-c554-44fb-90fa-90486a1466ac/.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd646dcd-c554-44fb-90fa-90486a1466ac/.png)
+
+- Module(이후에는 이하 모듈로 통일)의 표준
+    1. Module을 인식하는 Module System과 
+    2. Module을 다루는 키워드가 제공되어야 한다
+- Module 시스템
+    - 종류가 여러가지
+    - CommonJS(Node.js)
+    - ESM(ECMAScript 2015 ~)
+- Module을 다루는 키워드
+    1. 내보내기
+        - 한곳으로 내보내기
+        - 개별적으로 내보내기
+        - 예시(CommonJS)
+            - module.exports
+            - module.exports = {...} (한객체형식)
+            - module.exports = 값
+            - module.exports.키_이름 = 값
+            - exports.키_이름 = 값 (module.exports의 축약형)
+        - 예시(ESM)
+            - export
+            - export default
+    2. 가져오기
+        - 모듈 객체를 참조하는 형태
+        - 예시(CommonJS)
+            - require(모듈의 경로)
+        - 예시(ESM)
+            - import 모듈_이름 from 모듈 위치
+- Module의 종류
+    1. Built-in Core Module ( 예: Node.js module)
+    2. Community-based module ( 예: NPM)
+        - npm CLI를 사용해야한다. ( 예: npm install ModuleName)
+    3. Local Module( 특정 프로젝트에 정의된 모듈)
+
+# 모듈의 예시(CommonJS)
+
+- 모듈 하기전
+    1. index.js
+
+        ```jsx
+        /**
+        * 1. 원의 넓이를 구하느 공식
+        * 2. PI 정의
+        * 3. 공식을 통해 결과 얻기
+        **/
+
+        const PI = 3.14;
+        const getCircleArea = r => r * r * PI;
+
+        const result = getCircleArea(2);
+        console.log(result);
+        ```
+
+- 모듈 하기후
+    1. index.js
+
+        ```jsx
+        /**
+        * 1. 원의 넓이를 구하느 공식
+        * 2. PI 정의
+        * 3. 공식을 통해 결과 얻기
+        **/
+
+        //const mathUtil = require('./mathUtil'); -> 다들고올 필요가 없음 
+        const { getCircleArea } = require('./mathUtil');
+
+        const result = getCircleArea(2);
+        console.log(result);
+        ```
+
+    2. mathUtil.js
+
+        ```jsx
+        const PI = 3.14;
+        const getCircleArea = r => r * r * PI;
+
+        //module.exports ={
+        //	PI,
+        //	getCircleArea
+        //}
+
+        exports.PI = PI;
+        exports.getCircleArea = getCircleArea;
+
+        // 위 방식중 한가지 방식으로 하는게 좋다
+        // 모듈이 꼬일수도 있기 때문에 (유실될수 있다.)
+        ```
+
+    # 모듈의 예시(ESM)
+
+    1. npm install esm → esm모듈설치
+    2. node -r esm index.js
+        - -r : commonJS뿐만 아니라 다른 표준도 사용할수있게 설정
+    3. 모듈 예시
+        1. index.js
+
+            ```jsx
+            /**
+            * 1. 원의 넓이를 구하느 공식
+            * 2. PI 정의
+            * 3. 공식을 통해 결과 얻기
+            **/
+
+            //const mathUtil = require('./mathUtil'); -> 다들고올 필요가 없음 
+            //const { getCircleArea } = require('./mathUtil');
+            //import { getCircleArea } from './mathUtil';
+            import mathUtil from './mathUtil'; // -> export default일시
+
+            //const result = getCircleArea(2);
+            const result = mathUtil.getCircleArea(2);
+            console.log(result);
+            ```
+
+        2. mathUtil.js
+
+            ```jsx
+            const PI = 3.14;
+            const getCircleArea = r => r * r * PI;
+
+            //module.exports ={
+            //	PI,
+            //	getCircleArea
+            //}
+
+            //exports.PI = PI;
+            //exports.getCircleArea = getCircleArea;
+
+            //export {
+            //	PI,
+            //	getCirclArea
+            //}
+
+            export default {
+            	PI,
+            	getCirclArea
+            }
+            ```
