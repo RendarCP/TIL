@@ -2,7 +2,7 @@
 
 - 프로그램을 구성하는 내부의 코드가 기능별로 나뉘어져 있는 형태
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd646dcd-c554-44fb-90fa-90486a1466ac/.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd646dcd-c554-44fb-90fa-90486a1466ac/.png)
+    ![모듈정의](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bd646dcd-c554-44fb-90fa-90486a1466ac/.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T130123Z&X-Amz-Expires=86400&X-Amz-Signature=801066963d90037343926d77a5760ca695c39599236c15c669780ac880723ac4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22.png%22)
 
 - Module(이후에는 이하 모듈로 통일)의 표준
     1. Module을 인식하는 Module System과 

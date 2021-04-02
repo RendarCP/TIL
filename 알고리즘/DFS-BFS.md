@@ -3,7 +3,7 @@
 1. 스택(Stack)
     - 선입후출 또는 선입 선출 구조 (First In Last Out / Last In First Out)
 
-        ![스택](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/eb38b0bc-6d6d-4420-b0b3-5fa774d05f2c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T150419Z&X-Amz-Expires=86400&X-Amz-Signature=e6f622ef4191d9ad98bff4213be2ec5c9fbc724f26cbfa0a58d3aca528f21447&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+        ![스택](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/eb38b0bc-6d6d-4420-b0b3-5fa774d05f2c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T130400Z&X-Amz-Expires=86400&X-Amz-Signature=2d19354a13cc71a36da4711da4cff5ca78972aa0815c75fd4a5732086b1243c7&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
     - 스택의 코드(Python)
 
@@ -33,7 +33,7 @@
     - 대기 줄에 비유가 가능
     - 선입 선출 구조 (First In First Out)
 
-        ![선입선출](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0988a5a-655c-4620-89b2-d5b8e5d432ab/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T150519Z&X-Amz-Expires=86400&X-Amz-Signature=14572949294c9147f49d845dc446f9439130aaee40c53a0b21a96ca2ed21e0ed&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+        ![선입선출](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0988a5a-655c-4620-89b2-d5b8e5d432ab/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T130423Z&X-Amz-Expires=86400&X-Amz-Signature=446f5f3fec191ebe583882e65890f4a6a6ad191d4e9c96cae2b886c1a9c60789&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
     - 큐의 코드
 
@@ -127,13 +127,13 @@
     - 깊이 우선 탐색이라고도 부르며, 그래프에서 깊은 부분을 우선적으로 탐색하는 알고리즘
     - 그래프란 무엇인가?
 
-        ![그래프](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ded6c42c-6ab8-4b0d-9a33-30aee5810f63/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T150546Z&X-Amz-Expires=86400&X-Amz-Signature=22583dba39e9a7b49f5746f490548a9ad0038a5b29f937cf3a6ddfeb562f00bd&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+        ![그래프](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ded6c42c-6ab8-4b0d-9a33-30aee5810f63/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T130453Z&X-Amz-Expires=86400&X-Amz-Signature=7004933f45bf97a809b256db50d5da26724160113ea4eed88e15bb458479feca&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
         - 노드(정점)와 엣지(간선)으로 표현되는것을 말한다.
         - 두 노드가 서로 연결되어 있다면 '인접하다(Adjacent)' 라고 표현
         - 인접행렬 방식
 
-            ![인접행렬](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5bb5879a-c0c8-4219-a2b1-331b23eac9e5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T150549Z&X-Amz-Expires=86400&X-Amz-Signature=1f74f7a05ca2b9b63b44688b1a114798d47e7085dc06e4fafbb6eb06ec5093b2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+            ![인접행렬](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5bb5879a-c0c8-4219-a2b1-331b23eac9e5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T130507Z&X-Amz-Expires=86400&X-Amz-Signature=1181042660855a6139e853d84c6fd8f8895f181aa105e5e4c6dcc3aeb7f11629&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
             ```python
             # 인접 행렬 방식 예제
@@ -152,7 +152,7 @@
 
         - 인접리스트
 
-            ![인접리스트](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/800662dd-e19b-4105-8fd8-358131103200/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T150633Z&X-Amz-Expires=86400&X-Amz-Signature=888c131c07e204f7a049066d587f445186fdf4037ff4dfd212e464f3fb58872a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+            ![인접리스트](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/800662dd-e19b-4105-8fd8-358131103200/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T130526Z&X-Amz-Expires=86400&X-Amz-Signature=5758fc12dd6d82d0faddbf9835b3db16b73ba56a588ada71158a716d19f01523&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
             ```python
             graph = [[] for _ in rang(3)]
