@@ -2,7 +2,7 @@
 
 - 프로그램을 구성하는 내부의 코드가 기능별로 나뉘어져 있는 형태
 
-    ![모듈정의](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bd646dcd-c554-44fb-90fa-90486a1466ac/.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T130123Z&X-Amz-Expires=86400&X-Amz-Signature=801066963d90037343926d77a5760ca695c39599236c15c669780ac880723ac4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22.png%22)
+    ![모듈정의](https://user-images.githubusercontent.com/32770277/114118216-63ab2e00-9923-11eb-8cb1-233f7dbe8cee.png)
 
 - Module(이후에는 이하 모듈로 통일)의 표준
     1. Module을 인식하는 Module System과 
@@ -263,7 +263,7 @@
 
 ## Bundle이란?
 
-![webpack번들러](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7f9d8b26-0032-4fcc-b7b8-d2ea45b13bce/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210405T084230Z&X-Amz-Expires=86400&X-Amz-Signature=82e8d8b84dec4291ba66cf2e9f730e859fe0aced7f947b2ee38e151c70739c62&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![webpack번들러](https://user-images.githubusercontent.com/32770277/114118227-673eb500-9923-11eb-89ba-8e76267ab8e0.png)
 
 - 다양한 파일과 확장자를 번들이 진행되어 하나의 파일로 형성
 
@@ -271,12 +271,12 @@
 
 1. 모든 모듈을 로드하기 위해 검색하는 시간이 단축된다.
 
-    ![모듈 시간단축](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4c721184-bee1-4057-b8c0-4c8a2aa7b480/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210405T084234Z&X-Amz-Expires=86400&X-Amz-Signature=fcc1176f5f1a9c0888ceea200734dea7687efe3d70d7a8868a8646f6731a6ef8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+    ![모듈 시간단축](https://user-images.githubusercontent.com/32770277/114118224-66a61e80-9923-11eb-8346-6d8b2def4b64.png)
 
     - 한파일 안에서 모든 모듈이 적용되므로 단축
 2.  사용하지 않는 코드를 제거해준다.
 
-    ![코드 제거](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/cb6ee50e-7748-44a2-a0d6-3600b95b2540/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210405%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210405T084238Z&X-Amz-Expires=86400&X-Amz-Signature=d7150bafe5660a2987783ad77f57864733b586d7a7584d0dcf1f2f9929a469ef&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+    ![코드 제거](https://user-images.githubusercontent.com/32770277/114118220-64dc5b00-9923-11eb-8219-42f976c24f71.png)
 
     - 번들링과정을 거친후에는 사용하지 않은 코드는 제거된다
 3. 파일의 크기를 줄여준다.
