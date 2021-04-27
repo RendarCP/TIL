@@ -624,3 +624,92 @@ function InputSample() {
 }
 
 export default InputSample;
+```
+
+## 10. useEffect로 마운트/언마운트/업데이트
+
+- 마운트 : 화면에서 나타나는것 (추가) → 처음 렌더링 될때도 호출됨
+    - props → state
+    - 외부 API 요청 (REST API)
+    - 라이브러리 사용 (D3, Video.js)
+    - setInterval, setTimeout
+    - UI가 화면에 나타난 이후이기때문에 DOM으로 접근 가능
+- 언마운트 : 화면에서 사라지는 것 (제거)
+    - clearInterval, clearTimeout
+    - 라이브러리 인스턴스 제거
+- deps : dependency 값
+    - deps값이 설정된 것을 추적한다 (설정되거나 바뀌거나(업데이트) 될때마다 호출됨) → effect안에 함수
+    - useEffect에서 props값을 참조하거나 stater값을 참조시 deps에 넣어야 된다.
+        - 오류가 나진 않지만 → 경고발생 (ESLint)
+        - 이렇게 해야 deps의 상태가 최신의 값을 유지함
+        - state뿐만아니라 함수도 넣어줘야 잘 작동함(props로 내려줄시)
+        - deps값을 주지 않을경우 전체가 리렌더링 된다
+            - 성능에 좋지 않다
+
+useEffect 구조 
+
+```jsx
+useEffect(() => {
+	console.log(user); // 마운트 함수 
+	return () => {
+		// 이쪽은 뒷정리 함수 (언마운트)
+	}
+}, []);
+// 1. 첫 파라미터는 함수 
+// 2. 두번째 파라미터는 deps
+```
+
+UserList.js
+
+```jsx
+import React, { useEffect } from 'react';
+
+function User({ user, onRemove, onToggle }) {
+  useEffect(() => {
+    console.log('컴포넌트가 화면에 나타남'); // 나타날때 (마운트)
+		// props -> state
+		// REST API
+		// D3, Video.js
+		// setInterval, setTimeout
+		// UI가 화면에 나타난 이후이기 때문에 DOM에 접근 가능 
+    return () => {
+				//clearInterval, clearTimeout
+				//라이브러리 인스턴스 제거
+      console.log('컴포넌트가 화면에서 사라짐'); // 사라질때(언마운트)
+    };
+  }, []);// -> 마지막값은 deps(Dependency) 
+  return (
+    <div>
+      <b
+        style={{
+          cursor: 'pointer',
+          color: user.active ? 'green' : 'black'
+        }}
+        onClick={() => onToggle(user.id)}
+      >
+        {user.username}
+      </b>
+      &nbsp;
+      <span>({user.email})</span>
+      <button onClick={() => onRemove(user.id)}>삭제</button>
+    </div>
+  );
+}
+
+function UserList({ users, onRemove, onToggle }) {
+  return (
+    <div>
+      {users.map(user => (
+        <User
+          user={user}
+          key={user.id}
+          onRemove={onRemove}
+          onToggle={onToggle}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default UserList;
+```
