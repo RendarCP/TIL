@@ -713,3 +713,115 @@ function UserList({ users, onRemove, onToggle }) {
 
 export default UserList;
 ```
+
+## 11. useMemo를 통한 값 최적화
+
+- 기존 연산된 값을 재사용하는 방법
+- 값이 변경된 것에만 리렌더링을 시켜서 성능을 최적화 시키는 것
+
+```jsx
+import React, { useRef, useState } from 'react';
+import UserList from './UserList';
+import CreateUser from './CreateUser';
+
+function countActiveUsers(users) {
+  console.log('활성 사용자 수를 세는중...');
+  return users.filter(user => user.active).length;
+	// active가 트루인 값의 갯수를 구하는 것
+}
+
+function App() {
+  const [inputs, setInputs] = useState({
+    username: '',
+    email: ''
+  });
+  const { username, email } = inputs;
+  const onChange = e => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  };
+  const [users, setUsers] = useState([
+    {
+      id: 1,
+      username: 'velopert',
+      email: 'public.velopert@gmail.com',
+      active: true
+    },
+    {
+      id: 2,
+      username: 'tester',
+      email: 'tester@example.com',
+      active: false
+    },
+    {
+      id: 3,
+      username: 'liz',
+      email: 'liz@example.com',
+      active: false
+    }
+  ]);
+
+  const nextId = useRef(4);
+  const onCreate = () => {
+    const user = {
+      id: nextId.current,
+      username,
+      email
+    };
+    setUsers(users.concat(user));
+
+    setInputs({
+      username: '',
+      email: ''
+    });
+    nextId.current += 1;
+  };
+
+  const onRemove = id => {
+    // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
+    // = user.id 가 id 인 것을 제거함
+    setUsers(users.filter(user => user.id !== id));
+  };
+  const onToggle = id => {
+    setUsers(
+      users.map(user =>
+        user.id === id ? { ...user, active: !user.active } : user
+      )
+    );
+  };
+  
+	const count = countActiveUsers(users); // 함수로 받기 
+  
+	return (
+    <>
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
+      <div>활성사용자 수 : {count}</div>
+    </>
+  );
+}
+
+export default App;
+```
+
+- 위 코드의 문제점의 경우 input으로 상태가 변경되어도 활성 사용자의 수도 리렌더링 되는 문제점이 존재
+- useMemo를 통하여 상태값이 변할때만 렌더링 되게 변경
+    - useMemo(() ⇒ 함수() ,[deps]])
+    - 첫 파라미터는 함수형태
+    - 두번쨰 파라미터는 deps로 변화를 감지할 상태를 넣으면된다
+        - ex) users, posts 등
+
+```jsx
+const count = useMemo(() => countActiveUsers(users),[users]);
+```
+
+- 위부분을 useMemo로 감싸면된다
+- 컴포넌트 최적화시에 유용하다
