@@ -84,3 +84,62 @@
        }
      }
      ```
+
+## 5. TypeScript 기본타입 선언
+
+- TypeScript는 Javascript와 동일하게 타입적용
+
+1. ES6 기준 7개 타입(6개 원시형 타입, 1개의 참조형 타입)
+
+   ```jsx
+   let numValue: number;
+   let stringValue: String;
+   let booleanValue: boolean;
+   let undefinedValue: undefined; // 상위타입
+   let nullValue: null; // 상위타입
+   //--- 원시형 타입(기본타입)
+   let objValue: object;
+   // -- 참조형 타입
+   let symbolValue: symbol;
+   // ES6에서 추가된 원시 타입
+   let anyValue: any; // 최상위 타입
+
+   numValue = 3.3; // 10진수, 16진수, 8진수 등 표현가능
+   stringValue = "hello";
+   stringValue = `
+   hello
+   ${} // 스트링 인터폴레이션
+   hi
+   `
+
+   booleanValue = true;
+   undefinedValue = null;
+   numValue = null; // 상위타입이기떄문에
+   numValue = undefined; //상위타입때문에
+   anyValue = 1;
+   anyValue = "3";
+   anyValue = null;
+   anyValue = {};
+
+   objValue = { name: 'jay' };
+   objValue = { };
+   objValue = new String(33);
+
+   symbolValue = Symbol();
+
+   // ---- 배열
+   let nameList: string[];
+   nameList = ["1", "3"];
+   nameList.push(333); //error
+
+   let user1: {name: string, score:number};
+   user1 = {
+   	name: 'jay',
+   	scroe: 30
+   }
+
+   let tuple2: [number, string];
+   let tuple3: [number, number, number];
+   tuple2 = [1, "hello"]
+   tuple3 = [1,2,3]
+   ```
