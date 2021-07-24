@@ -143,3 +143,55 @@
    tuple2 = [1, "hello"]
    tuple3 = [1,2,3]
    ```
+
+## 6. Interface
+
+1. 인터페이스는 행위에 대한 것만 구현 해놓는다 (실제 구현은 인터페이스를 받는 쪽에서 정의)
+
+```jsx
+interface TV {
+  turnOn(): boolean;
+  turnOff(): void; // return 값이 없음
+}
+
+const myTV: TV = {
+  turnOn() {
+    return true;
+  },
+  turnOff() {},
+};
+
+function tryTurnOn(tv: TV) {
+  tv.turnOn();
+}
+tryTurnOn(myTV);
+
+// interface는 행위가 없고, 속성 -> 데이터를 담고있다
+// 밑은 보드게임 예시
+interface Cell {
+  row: number;
+  col: number;
+  piece?: Piece; // ?는 옵셔널한 속성이다 정의
+}
+
+interface Piece {
+  move(from: Cell, to: Cell): boolean;
+}
+
+function createBoard() {
+  const cells: Cell[] = [];
+  for (let row = 0; row < 4; row++) {
+    for (let col = 0; col < 3; col++) {
+      cells.push({ row, col });
+    }
+  }
+  return cells;
+}
+
+const board = createBoard(); // 보드 생성
+board[0].piece = {
+  move(from: Cell, to: Cell) {
+    return true;
+  },
+};
+```
