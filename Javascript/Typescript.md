@@ -195,3 +195,140 @@ board[0].piece = {
   },
 };
 ```
+
+## 7. 함수
+
+```jsx
+function add(x: number, y: number): number{
+  return x + y;
+}
+
+const result = add(1,2);
+
+// 옵셔널 하게 처리할시
+// function buildUserInfo(name? : string, email?: string){
+//   return { name, email };
+// }
+// 기본값 처리시
+function buildUserInfo(name= "-", email = "-"){
+  return { name, email };
+}
+const user = buildUserInfo();
+
+// es6 문법도 가능
+const add2 = (a: number, b: number): number => a + b;
+
+// 함수의 오버로드
+interface Storage {
+  a: string
+}
+interface ColdStorage {
+  b: string
+}
+// 오버로드 시그니쳐
+function store(type: "통조림"): Storage
+function store(type: "아이스크림"): ColdStorage
+
+function store(type: "통조림" | "아이스크림"){
+  if(type === "통조림"){
+    return { a: "통조림"}
+  } else if (type === "아이스크림") {
+    return { b: "아이스크림"}
+  } else{
+    throw new Error("unsuppoted type");
+  }
+}
+
+const s = store('통조림');
+```
+
+## 8. enum 열거형
+
+```jsx
+// 열거형 -> 상수들의 집합 (회원등급, 플레이어 종류 등)
+// 순서대로 숫자가 매겨진다
+enum StarbuksGrade {
+  WELCOME,
+  DDD,
+  GREEN,
+  GOLD,
+}
+// 혹시 순서대로가 아닌 숫자를 매칭할떄는 아래처럼
+enum StarbuksGrade {
+  WELCOME = 0,
+  WELCOME = "WELCOME" //숫자뿐만아니라 글자도 가능
+  DDD = 3,
+  GREEN = 1,
+  GOLD = 2,
+}
+
+function getDiscount(v: StarbuksGrade) : number {
+  switch(v){
+    case StarbuksGrade.WELCOME:
+      return 0;
+    case StarbuksGrade.GREEN:
+      return 5;
+    case StarbuksGrade.GOLD:
+      return 10;
+  }
+}
+
+console.log(getDiscount(StarbuksGrade.GREEN)) // 5
+console.log(StarbuksGrade.GREEN) // 1
+console.log(StarbuksGrade);
+// {
+//   '0': 'WELCOME',
+//   '1': 'GREEN',
+//   '2': 'GOLD',
+//   WELCOME: 0,
+//   GREEN: 1,
+//   GOLD: 2
+// }
+
+console.log(StarbuksGrade[0]); // WELCOME
+```
+
+## 9. Class
+
+- es6 이후에 등장한 타입을 생성가능함 (객체생성)
+
+```jsx
+interface User {
+	name: string;
+}
+interface Product {
+	id: string;
+	price: number;
+}
+// 접근제한자
+// private, public, protected
+// private -> 클래스 내부에서만 가능 (상속x)
+// protected -> 클래스 내부에서만 (상속 가능)
+// public -> 모두 가능
+class Cart {
+	//user: User;
+	store: object;
+	//private store: object; -> 클래스 내부에서만
+	constructor(protected user: User){ // 매개변수에 바로 선언가능
+		this.user = user;
+		this.store = {};
+	}
+	put(id: string, product: Product) {
+		this.store[id] = product;
+	}
+	get(id: string){
+		return this.store[id];
+	}
+}
+
+class PromotionCart extends Cart {
+	addPromotion() {
+		this.user
+	}
+}
+
+const cart2 = new PromotionCart({ name: 'john' });
+cart2.put();
+const cartJohn = new Cart({ name: 'john' })
+const cartJay = new Cart({ name: 'jay' })
+```
